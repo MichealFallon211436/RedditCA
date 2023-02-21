@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Article } from './article.model';
 
 @Component({
   selector: 'app-article',
@@ -6,20 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent {
-  votes:number;
-  title:string;
-  link:string;
+
+  article:Article;
+
+  
   constructor() {
-    this.title="Angular";
-    this.link="https://angular.io";
-    this.votes=10;
+   
+    this.article =  new Article("Angular","https://angular.io",10)
+    
   }
   voteUp():boolean {
-    this.votes ++;
+    this.article.voteUp();
     return false;
   }
   voteDown():boolean {
-    this.votes --;
+    this.article.voteDown();
     return false;
   }
 
